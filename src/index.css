@@ -94,3 +94,26 @@ li {
   font-size: small;
   text-align: center;
 }
+
+.options {
+  margin: auto;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.submitQuestion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.submitQuestion > button {
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  background-color: rgb(139, 238, 139);
+}
+
+.newqwestionheader {
+  border-bottom: 1px solid grey;
+}
