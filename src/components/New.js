@@ -1,12 +1,20 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { handlesaveQuestion } from "../actions/questions";
 
-export function New(props) {
+function New(props) {
   const [q1, setq1] = useState("");
   const [q2, setq2] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handlesavequestion action (q1, q2 , autheduser)
+    props.dispatch(
+      handlesaveQuestion({
+        optionOneText: q1,
+        optionTwoText: q2,
+        author: props.authedUser,
+      })
+    );
   };
   return (
     <div className="container">
@@ -45,3 +53,10 @@ export function New(props) {
     </div>
   );
 }
+
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  };
+}
+export default connect(mapStateToProps)(New);

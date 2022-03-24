@@ -7,7 +7,7 @@ import { handleInitialData } from "../actions/shared";
 import Login from "./Login";
 import Home from "./Home";
 import Poll from "./Poll";
-import { New } from "./New";
+import New from "./New";
 
 function App(props) {
   useEffect(() => {

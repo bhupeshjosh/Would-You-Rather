@@ -1,8 +1,10 @@
 import { getQuestions, saveQuestionAnswer } from "../util/api";
-import { saveUserAnswer } from "./users";
+import { saveUserAnswer, saveUserQuestion } from "./users";
+import { saveQuestions } from "../util/api";
 
 export const RECEIVE_Q = "receive_questions";
 export const SAVE_ANSWER = "save_answer";
+export const ADD_QUESTION = "save_question";
 
 export function recieveQuestions(questions) {
   return {
@@ -19,10 +21,22 @@ export function handleReceiveQuestions() {
   };
 }
 
-export function handlesaveQuestion({ optionOneText, optionTwoText, author }) {
-  return (dispatch) => {};
+export function handlesaveQuestion(question) {
+  console.log("New Question :::", question);
+  return (dispatch) => {
+    saveQuestions(question).then((q) => {
+      dispatch(addQuestion(q));
+      dispatch(saveUserQuestion(q));
+    });
+  };
 }
 
+function addQuestion(question) {
+  return {
+    type: ADD_QUESTION,
+    question,
+  };
+}
 function saveAnswer({ authedUser, qid, answer }) {
   return {
     type: SAVE_ANSWER,
