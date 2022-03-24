@@ -12,18 +12,18 @@ function Home(props) {
     setFilter(false);
   };
   let questions = [];
-
+  // list of questions answered by logged in user
   const qans = Object.keys(props.users[props.authedUser].answers);
-  console.log("question answered by user ::", qans);
-  console.log(props.questions);
+
+  // filter answered/ unanswered questions ans sort based on timestamp. Newest poll displayed first.
   if (ans) {
-    questions = Object.values(props.questions).filter((q) =>
-      qans.includes(q.id)
-    );
+    questions = Object.values(props.questions)
+      .filter((q) => qans.includes(q.id))
+      .sort((a, b) => b.timestamp - a.timestamp);
   } else {
-    questions = Object.values(props.questions).filter(
-      (q) => !qans.includes(q.id)
-    );
+    questions = Object.values(props.questions)
+      .filter((q) => !qans.includes(q.id))
+      .sort((a, b) => b.timestamp - a.timestamp);
   }
 
   return (
