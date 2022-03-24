@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { handlesaveQuestion } from "../actions/questions";
 
 function New(props) {
   const [q1, setq1] = useState("");
   const [q2, setq2] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     props.dispatch(
@@ -15,6 +16,7 @@ function New(props) {
         author: props.authedUser,
       })
     );
+    navigate("/");
   };
   return (
     <div className="container">

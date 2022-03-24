@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import { handleSaveAnswer } from "../actions/questions";
 
 function Poll(props) {
   const [check, setCheck] = useState(1);
-
+  // fetch question id from url
+  const { id } = useParams();
+  const { questions, authedUser, users } = props;
   const handleSubmit = (e) => {
     e.preventDefault();
     props.dispatch(
       handleSaveAnswer({
         authedUser: props.authedUser,
-        qid: props.id,
+        qid: id,
         answer: check === 1 ? "optionOne" : "optionTwo",
       })
     );
   };
 
-  const { questions, authedUser, users, id } = props;
   // check if this question is allready answered by user
   // Based on that render diffrent UI
   let answered;
@@ -126,12 +128,11 @@ function Poll(props) {
   }
 }
 
-function mapStateToProps({ questions, authedUser, users }, { id }) {
+function mapStateToProps({ questions, authedUser, users }) {
   return {
     questions,
     authedUser,
     users,
-    id,
   };
 }
 export default connect(mapStateToProps)(Poll);

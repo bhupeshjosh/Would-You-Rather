@@ -47,6 +47,7 @@ function saveAnswer({ authedUser, qid, answer }) {
 }
 
 export function handleSaveAnswer({ authedUser, qid, answer }) {
+  debugger;
   return (dispatch) => {
     saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
       dispatch(saveAnswer({ authedUser, qid, answer }));

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Home(props) {
   const [ans, setFilter] = useState(false);
@@ -11,7 +12,7 @@ function Home(props) {
     setFilter(false);
   };
   let questions = [];
-  //console.log("user is :", props);
+
   const qans = Object.keys(props.users[props.authedUser].answers);
   console.log("question answered by user ::", qans);
   console.log(props.questions);
@@ -24,7 +25,7 @@ function Home(props) {
       (q) => !qans.includes(q.id)
     );
   }
-  console.log("question to display", questions);
+
   return (
     <div className="container">
       <h1>HOME PAGE </h1>
@@ -37,7 +38,7 @@ function Home(props) {
         </button>
       </div>
       {questions.map((q) => (
-        <div className="questionView" key={q.id}>
+        <Link to={`question/${q.id}`} className="questionView" key={q.id}>
           <div className="header">{`  ${q.author} asks`}</div>
           <img
             className="avatar"
@@ -51,7 +52,7 @@ function Home(props) {
             <div>{`...${q.optionOne.text}...`}</div>
             <button>View Poll</button>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
