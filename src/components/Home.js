@@ -44,7 +44,7 @@ function Home(props) {
         </button>
       </div>
       {questions.map((q) => (
-        <Link to={`question/${q.id}`} className="questionView" key={q.id}>
+        <Link to={`questions/${q.id}`} className="questionView" key={q.id}>
           <div className="header">{`  ${q.author} asks`}</div>
           <img
             className="avatar"

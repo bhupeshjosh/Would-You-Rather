@@ -25,7 +25,7 @@ function App(props) {
             <Routes>
               <Route path="/" exact element={<Home />} />
               <Route path="add" element={<New />} />
-              <Route path="question/:id" element={<Poll />} />
+              <Route path="questions/:id" element={<Poll />} />
               <Route path="Leaderboard" element={<Leaderboard />} />
             </Routes>
           )}
