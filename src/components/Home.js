@@ -30,10 +30,16 @@ function Home(props) {
     <div className="container">
       <h1>HOME PAGE </h1>
       <div>
-        <button onClick={handleAns} className="qnToggleButton">
+        <button
+          onClick={handleAns}
+          className={`qnToggleButton ${ans === true ? "ansFilter" : ""}`}
+        >
           Ansewered
         </button>
-        <button onClick={handleNotAns} className="qnToggleButton">
+        <button
+          onClick={handleNotAns}
+          className={`qnToggleButton ${ans === false ? "ansFilter" : ""}`}
+        >
           UnAnsewered
         </button>
       </div>

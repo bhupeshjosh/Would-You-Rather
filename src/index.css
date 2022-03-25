@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-evenly;
 }
-.navContainer a {
+.navContainer li {
   text-decoration: none;
   background-color: aqua;
 }
@@ -127,4 +127,45 @@ li {
 
 .newqwestionheader {
   border-bottom: 1px solid grey;
+}
+
+.ansFilter {
+  background-color: aqua;
+}
+
+.LeaderBoardView {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+
+  justify-content: start;
+  margin: 5px;
+}
+
+.leaderboardDetail {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 40% 30% 30%;
+  border-right: 1px solid beige;
+  border-left: 1px solid beige;
+  padding: 2px;
+}
+
+.leaderboardhaeder {
+  grid-column: 1/-1;
+  font-family: sans-serif;
+}
+
+.leaderboardScore {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 30% 40% 30%;
+  justify-content: center;
+  text-align: center;
+}
+
+.finalScore {
+  grid-column: 2 / span 1;
+  text-align: center;
+  background-color: aqua;
+  border-radius: 50%;
 }

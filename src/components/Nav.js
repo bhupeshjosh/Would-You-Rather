@@ -3,9 +3,6 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { setAuthedUser } from "../actions/authedUser";
 
-//import { handleReceiveData } from "../actions/users";
-//import { setAuthedUser } from "../actions/authedUser";
-
 function Nav(props) {
   // on logout Navigate to login page
   const handleLogOut = (e) => {
@@ -31,11 +28,7 @@ function Nav(props) {
         </li>
         {props.authedUser !== null && (
           <Fragment>
-            <li>
-              <NavLink to="/new" activeclassname="active">
-                {`Welcome ${props.authedUser}`}
-              </NavLink>
-            </li>
+            <li>{`Welcome ${props.authedUser}`}</li>
             <li>
               <NavLink onClick={handleLogOut} to="/" activeclassname="active">
                 LogOut

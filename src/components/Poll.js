@@ -8,6 +8,7 @@ function Poll(props) {
   // fetch question id from url
   const { id } = useParams();
   const { questions, authedUser, users } = props;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     props.dispatch(
@@ -18,7 +19,10 @@ function Poll(props) {
       })
     );
   };
-
+  // Handling for case when new question is accessed from url
+  if (!questions[id]) {
+    return <h1>404 Page not found</h1>;
+  }
   // check if this question is allready answered by user
   // Based on that render diffrent UI
   let answered;

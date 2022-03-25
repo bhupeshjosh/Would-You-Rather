@@ -7,6 +7,7 @@ import Login from "./Login";
 import Home from "./Home";
 import Poll from "./Poll";
 import New from "./New";
+import Leaderboard from "./Leaderboard";
 
 function App(props) {
   useEffect(() => {
@@ -25,12 +26,9 @@ function App(props) {
               <Route path="/" exact element={<Home />} />
               <Route path="add" element={<New />} />
               <Route path="question/:id" element={<Poll />} />
+              <Route path="Leaderboard" element={<Leaderboard />} />
             </Routes>
           )}
-
-          {/*{props.authedUser ? <Home /> : <Login />}*/}
-          {/*{props.authedUser ? <Poll id={"8xf0y6ziyjabvozdd253nd"} /> : <Login />}*/}
-          {/*{props.authedUser ? <New /> : <Login />}*/}
           <div></div>
         </div>
       </div>
