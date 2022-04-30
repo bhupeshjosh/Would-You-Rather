@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { setAuthedUser } from "../actions/authedUser";
+import { setAuthedUser } from "../../actions/authedUser";
 
-function Login(props) {
+const xyz = 5;
+function Login({ users = {}, dispatch = () => {} }) {
   const [user, setUser] = useState("");
-
   const handleChange = (e) => {
     setUser(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.dispatch(setAuthedUser(user));
+    dispatch(setAuthedUser(user));
   };
 
-  const usersArr = Object.values(props.users);
-
+  const usersArr = Object.values(users);
+  console.log(usersArr);
   return (
     <div className="container">
       <div className="logininfo">Welcome to would you rather App!</div>
@@ -41,4 +41,6 @@ function mapStateToProps({ users, questions }) {
     users,
   };
 }
-export default connect(mapStateToProps)(Login);
+const LoginComponent = connect(mapStateToProps)(Login);
+
+export { LoginComponent, xyz };

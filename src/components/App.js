@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import { useEffect } from "react";
 import { handleInitialData } from "../actions/shared";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./Login";
+import { LoginComponent, xyz } from "./Login";
 import Home from "./Home";
 import Poll from "./Poll";
 import New from "./New";
 import Leaderboard from "./Leaderboard";
 
+console.log(xyz);
 function App(props) {
   useEffect(() => {
     props.dispatch(handleInitialData());
@@ -20,7 +21,7 @@ function App(props) {
         <div className="AppContainer">
           <div></div>
           {!props.authedUser ? (
-            <Login />
+            <LoginComponent user1="Bhupesh" />
           ) : (
             <Routes>
               <Route path="/" exact element={<Home />} />
